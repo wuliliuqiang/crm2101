@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    http://localhost:8080/springboot/user/detail?id=1
+-->
+<script type="text/javascript" th:inline="javascript">
+
+    var scheme = [[${#request.getScheme()}]];
+
+    var serverName = [[${#request.getServerName()}]];
+
+    var serverPort = [[${#request.getServerPort()}]];
+
+    var contextPath = [[${#request.getContextPath()}]];
+
+    var requestURL = [[${#request.requestURL}]];
+
+    var queryString = [[${#request.queryString}]];
+
+    // alert(requestURL+"?"+queryString);
+
+</script>
+
+<div th:text="${#session.getAttribute('user').id}"></div>
+
+<div th:text="${session.user.id}"></div>
+
+<div th:text="${curTime}"></div>
+<div th:text="${#dates.format(curTime,'yyyy-MM-dd HH:mm:ss SSS')}"></div>
+</body>
+</html>
